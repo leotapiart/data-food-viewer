@@ -4,10 +4,8 @@ import fetchCsvData from "../services/dataService";
 const useDataLoader = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
     fetchCsvData()
       .then((data) => setData(data))
       .catch((err) => {
@@ -16,7 +14,7 @@ const useDataLoader = () => {
       });
   }, []);
 
-  return { data, loading, error };
+  return { data, error };
 };
 
 export default useDataLoader;
